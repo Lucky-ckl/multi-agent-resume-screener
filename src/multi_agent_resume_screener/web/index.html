@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>multi-agent-resume-screener — Resume Screening</title>
+  <title>multi-agent-resume-screener — 简历筛选</title>
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
@@ -11,9 +11,8 @@
     <div class="container">
       <h1>multi-agent-resume-screener</h1>
       <p class="tagline">
-        Multi-agent resume screening against a job description — ranked with
-        per-section reasons, plus two-track CV feedback: skills to build over
-        time and quick fixes to apply right now.
+        多智能体简历筛选：对照职位描述排序打分，给出逐板块理由，并提供两条
+        反馈轨道——需要长期积累的技能，以及可以立即完成的简历修改。
       </p>
     </div>
   </header>
@@ -22,37 +21,37 @@
     <section class="card form-card">
       <form id="screen-form">
         <div class="field">
-          <label for="jd">Job description</label>
+          <label for="jd">职位描述（JD）</label>
           <textarea id="jd" name="jd" rows="7"
-            placeholder="Paste the full job description here..." required></textarea>
+            placeholder="在此粘贴完整的职位描述……" required></textarea>
         </div>
 
         <div class="field-row">
           <div class="field">
-            <label for="mode">Mode</label>
+            <label for="mode">模式</label>
             <select id="mode" name="mode">
-              <option value="candidate">Candidate — improve my CV</option>
-              <option value="recruiter">Recruiter — rank resumes</option>
+              <option value="candidate">候选人 — 优化我的简历</option>
+              <option value="recruiter">招聘者 — 给简历排序</option>
             </select>
           </div>
 
           <div class="field">
-            <label for="critic_mode">Critic</label>
+            <label for="critic_mode">评审（Critic）</label>
             <select id="critic_mode" name="critic_mode">
-              <option value="full">Full — critique every resume</option>
-              <option value="fast">Fast — critique top candidates only</option>
+              <option value="full">完整 — 每份简历都评审</option>
+              <option value="fast">快速 — 仅评审头部候选人</option>
             </select>
           </div>
         </div>
 
         <div class="field">
-          <label for="resumes">Resume PDF(s)</label>
+          <label for="resumes">简历 PDF（可多选）</label>
           <input type="file" id="resumes" name="resumes" accept="application/pdf"
             multiple required />
-          <p class="hint">Candidate mode: one PDF. Recruiter mode: select several.</p>
+          <p class="hint">候选人模式：仅选择一份 PDF。招聘者模式：可同时选择多份。</p>
         </div>
 
-        <button type="submit" id="submit-btn" class="btn">Screen resumes</button>
+        <button type="submit" id="submit-btn" class="btn">开始筛选</button>
       </form>
     </section>
 
@@ -63,8 +62,8 @@
 
   <footer class="site-footer">
     <div class="container">
-      <span>Built with LangGraph + FastAPI.</span>
-      <a href="/docs">API docs</a>
+      <span>基于 LangGraph + FastAPI 构建。</span>
+      <a href="/docs">API 文档</a>
     </div>
   </footer>
 

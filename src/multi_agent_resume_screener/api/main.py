@@ -100,9 +100,9 @@ async def screen_endpoint(
     store: RunStore = Depends(get_store),
 ) -> ScreeningResult:
     if not jd.strip():
-        raise HTTPException(status_code=422, detail="Job description is empty.")
+        raise HTTPException(status_code=422, detail="职位描述为空。")
     if not resumes:
-        raise HTTPException(status_code=422, detail="At least one resume is required.")
+        raise HTTPException(status_code=422, detail="至少需要上传一份简历。")
 
     # 先构建 config，以便清晰地报告无效的 mode/critic_mode。
     try:
@@ -122,7 +122,7 @@ async def screen_endpoint(
         except PDFExtractionError as exc:
             raise HTTPException(
                 status_code=422,
-                detail=f"Could not read '{upload.filename}': {exc}",
+                detail=f"无法读取文件 '{upload.filename}'：{exc}",
             ) from exc
         resume_inputs.append(
             ResumeRaw(filename=upload.filename or "resume.pdf", text=text)
@@ -145,7 +145,7 @@ async def get_run(
 ) -> ScreeningResult:
     result = await asyncio.to_thread(store.get, run_id)
     if result is None:
-        raise HTTPException(status_code=404, detail=f"Run '{run_id}' not found.")
+        raise HTTPException(status_code=404, detail=f"运行记录 '{run_id}' 不存在。")
     return result
 
 

@@ -1,0 +1,19 @@
+# Render Blueprint — 在 Render 控制台一键部署。
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: cv-align-agents
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      # 在 Render 控制台中设置此项（切勿提交你的密钥）。
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_MODEL
+        value: gemini-2.5-flash
+      # 免费档的磁盘是临时的；把 SQLite 文件放在 /tmp。
+      - key: DB_PATH
+        value: /tmp/runs.db

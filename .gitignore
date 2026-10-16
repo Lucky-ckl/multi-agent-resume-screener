@@ -1,0 +1,63 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- 虚拟环境 ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- 构建/打包产物 ---
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# --- 环境变量与密钥 ---
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# --- IDE/编辑器 ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- 测试与覆盖率 ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+
+# --- 项目专属 ---
+# 本地 SQLite 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 开发期间上传的简历文件
+uploads/
+sample_data/private/
+# 简历 PDF 属于用户数据/测试产物——绝不提交
+*.pdf
+
+# 日志
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/

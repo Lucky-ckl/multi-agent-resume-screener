@@ -1,0 +1,7 @@
+# 依赖统一声明在 pyproject.toml（单一事实来源）。
+# 安装本文件会以可编辑模式安装本包及全部依赖：
+#   pip install -r requirements.txt
+# 可选 extra：
+#   pip install -e ".[dev]"    # 测试/静态检查工具
+#   pip install -e ".[groq]"   # 启用 Groq LLM 提供商
+-e .
